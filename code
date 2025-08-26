@@ -1,0 +1,83 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyCabSharingApp());
+}
+
+class MyCabSharingApp extends StatelessWidget {
+  const MyCabSharingApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: const LoginScreen(),
+    );
+  }
+}
+
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.blueGrey,
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Align(
+            alignment: Alignment.center,
+            child: Opacity(
+              opacity: 0.5,
+              child: Image.asset(
+                'assets/images/img.png',
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: double.infinity,
+              ),
+            ),
+          ),
+
+          SafeArea(
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text("My Cab Sharing", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black,),),
+                  const SizedBox(height: 8),
+                  const Text("Share Rides, Save Money", style: TextStyle(fontSize: 18, color: Colors.black,),),
+                  const SizedBox(height: 100),
+                  SizedBox(
+                    height: 125,
+                    width: 125,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(30), // circular logo
+                      child: Image.asset('assets/images/img_1.png'),
+                    ),
+                  ),
+                  const SizedBox(height: 200),
+
+                  ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30),),
+                      elevation: 5,
+                      shadowColor: Colors.blueAccent,
+                    ),
+                    onPressed: () {},
+                    icon: Image.asset('assets/images/img_3.png',height: 26,width: 26,),
+                    label: const Text("Login with BITS Mail", style: TextStyle(color: Colors.white, fontSize: 22, fontWeight: FontWeight.w500),),
+                  ),
+                  const SizedBox(height: 20),
+                  const Text("Made by Coding Club - BITS Pilani", style: TextStyle(fontSize: 18, color: Colors.black,fontWeight: FontWeight.w500,),),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
